@@ -125,8 +125,7 @@ def get_attack_speed(weapon, attack_style):
     else:
         base_speed = math.ceil(base_speed / 2)   # halve and round up for speed 3 or below
 
-    # Apply the attack style adjustment for 'rapid'
-    return base_speed if attack_style != 'rapid' else base_speed - 1
+    return base_speed
 
 def calculate_defence_roll(monster_name):
     """
