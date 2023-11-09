@@ -42,9 +42,9 @@ pegasian_boots, archers_ring, avas_attractor (if none in ammo)_
 
 
 ### Monster Names
-- Nex
-- Vorkath
-- Olm
-- Warden
-- Zebak
+- nex
+- vorkath
+- olm
+- warden
+- zebak
 

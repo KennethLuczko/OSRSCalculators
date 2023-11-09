@@ -55,11 +55,11 @@ gear = {
 }
 
 monsters = {
-    'Nex': {'defence_level': 260, 'ranged_defence_bonus': 190},
-    'Vorkath': {'defence_level': 214, 'ranged_defence_bonus': 26},
-    'Olm': {'defence_level': 250, 'ranged_defence_bonus': 50},
-    'Warden': {'defence_level': 150, 'ranged_defence_bonus': 20},
-    'Zebak': {'defence_level': 70, 'ranged_defence_bonus': 110},
+    'nex': {'defence_level': 260, 'ranged_defence_bonus': 190},
+    'vorkath': {'defence_level': 214, 'ranged_defence_bonus': 26},
+    'olm': {'defence_level': 250, 'ranged_defence_bonus': 50},
+    'warden': {'defence_level': 150, 'ranged_defence_bonus': 20},
+    'zebak': {'defence_level': 70, 'ranged_defence_bonus': 110},
 }
 
 def calculate_hit_chance(attack_roll, defence_roll):
