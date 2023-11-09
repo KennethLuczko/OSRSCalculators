@@ -30,15 +30,22 @@ _none will equip avas attractor_
 - rune_crossbow_buckler
 
 ### Gear Names
-_void and masori are the only options, but all other BIS gear will be equipt when selected_
-- void
-- masori
+- desert_masori
+- desert_void
+- fremmy_arma
+- fremmy_void
 
-_masori:
-zaryte_vambs, pegasian_boots, archers_ring, avas_attractor (if none in ammo)_
+desert_masori:
+['masori_top', 'masori_bottom', 'masori_hat', 'zaryte_vambs', 'pegasian_boots', 'lightbearer', 'max_cape']
 
-_void:
-pegasian_boots, archers_ring, avas_attractor (if none in ammo)_
+desert_void:
+['void_top', 'void_bottom', 'void_hat', 'void_gloves', 'pegasian_boots', 'lightbearer', 'max_cape']
+
+fremmy_arma:
+['arma_top', 'arma_bottom', 'arma_hat', 'zaryte_vambs', 'pegasian_boots', 'archers_ring', 'avas_attractor']
+
+fremmy_void:
+['void_top', 'void_bottom', 'void_hat', 'void_gloves', 'pegasian_boots', 'archers_ring', 'avas_attractor']
 
 
 ### Monster Names

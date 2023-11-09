@@ -15,7 +15,7 @@ Ranged accuracy is increased by 100%
 
 ranged_level = 99
 prayer_bonus = 1.2 # rigour 1.2
-potion_bonus = 1.15 # super ranging potion 1.15
+potion_bonus = 1.1 # ranging potion 1.1
 other_bonus = 1.0
 
 ammo = {
@@ -27,17 +27,16 @@ ammo = {
     'ruby_bolts_e': {'ranged_attack_bonus': 0, 'ranged_strength_bonus': 103},
     'ruby_dragon_bolts_e': {'ranged_attack_bonus': 0, 'ranged_strength_bonus': 122},
     'none': {'ranged_attack_bonus': 0, 'ranged_strength_bonus': 0},
-
 }
 
 weapons = {
-    'rune_crossbow': {'ranged_attack_bonus': 90, 'ranged_strength_bonus': 0, 'speed': 6},
-    'armadyl_crossbow': {'ranged_attack_bonus': 100, 'ranged_strength_bonus': 0, 'speed': 6},
-    'zaryte_crossbow': {'ranged_attack_bonus': 110, 'ranged_strength_bonus': 0, 'speed': 6},
+    'rune_crossbow': {'ranged_attack_bonus': 90, 'ranged_strength_bonus': 0, 'speed': 5},
+    'armadyl_crossbow': {'ranged_attack_bonus': 100, 'ranged_strength_bonus': 0, 'speed': 5},
+    'zaryte_crossbow': {'ranged_attack_bonus': 110, 'ranged_strength_bonus': 0, 'speed': 5},
     'twisted_bow': {'ranged_attack_bonus': 70, 'ranged_strength_bonus': 20, 'speed': 5},
-    'armadyl_crossbow_buckler': {'ranged_attack_bonus': 108, 'ranged_strength_bonus': 10, 'speed': 6},
-    'zaryte_crossbow_buckler': {'ranged_attack_bonus': 118, 'ranged_strength_bonus': 10, 'speed': 6},
-    'rune_crossbow_buckler': {'ranged_attack_bonus': 128, 'ranged_strength_bonus': 10, 'speed': 6},
+    'armadyl_crossbow_buckler': {'ranged_attack_bonus': 108, 'ranged_strength_bonus': 10, 'speed': 5},
+    'zaryte_crossbow_buckler': {'ranged_attack_bonus': 118, 'ranged_strength_bonus': 10, 'speed': 5},
+    'rune_crossbow_buckler': {'ranged_attack_bonus': 128, 'ranged_strength_bonus': 10, 'speed': 5},
 }
 
 gear = {
@@ -52,6 +51,12 @@ gear = {
     'pegasian_boots': {'ranged_attack_bonus': 12, 'ranged_strength_bonus': 0},
     'archers_ring': {'ranged_attack_bonus': 8, 'ranged_strength_bonus': 8},
     'avas_attractor': {'ranged_attack_bonus': 8, 'ranged_strength_bonus': 2},
+    'lightbearer': {'ranged_attack_bonus': 0, 'ranged_strength_bonus': 0},
+    'max_cape': {'ranged_attack_bonus': 0, 'ranged_strength_bonus': 0},
+    'arma_hat': {'ranged_attack_bonus': 10, 'ranged_strength_bonus': 0},
+    'arma_top': {'ranged_attack_bonus': 33, 'ranged_strength_bonus': 0},
+    'arma_bottom': {'ranged_attack_bonus': 20, 'ranged_strength_bonus': 2},
+    'fury': {'ranged_attack_bonus': 10, 'ranged_strength_bonus': 0},
 }
 
 monsters = {
@@ -82,7 +87,7 @@ def calculate_attack_roll(ranged_level, weapon, ammo_type, gear_selected, prayer
     effective_ranged_level = math.floor(ranged_level + attack_style_bonus + 8)
     
     # Apply the other bonuses and round down
-    effective_ranged_level = math.floor(effective_ranged_level * prayer_bonus * potion_bonus * other_bonus)
+    effective_ranged_level = math.floor(effective_ranged_level * prayer_bonus * (potion_bonus) * other_bonus) + 4
     
     # Calculate the total ranged attack bonus from equipment
     ranged_attack_bonus = sum(gear[item]['ranged_attack_bonus'] for item in gear_selected) \
@@ -137,10 +142,14 @@ def calculate_defence_roll(monster_name):
 def final_calcs(weapon_input, gear_setup_input, ammo_input, monster_input, attack_style_input):
     print("\033[92m")
 
-    if gear_setup_input.lower() == 'masori':
-        gear_selected = ['masori_top', 'masori_bottom', 'masori_hat', 'zaryte_vambs', 'pegasian_boots', 'archers_ring', 'avas_attractor']
-    elif gear_setup_input.lower() == 'void':
-        gear_selected = ['void_top', 'void_bottom', 'void_hat', 'void_gloves', 'pegasian_boots', 'archers_ring', 'avas_attractor']
+    if gear_setup_input.lower() == 'desert_masori':
+        gear_selected = ['masori_top', 'masori_bottom', 'masori_hat', 'zaryte_vambs', 'pegasian_boots', 'lightbearer', 'max_cape', 'fury']
+    elif gear_setup_input.lower() == 'desert_void':
+        gear_selected = ['void_top', 'void_bottom', 'void_hat', 'void_gloves', 'pegasian_boots', 'lightbearer', 'max_cape', 'fury']
+    elif gear_setup_input.lower() == 'fremmy_arma':
+        gear_selected = ['arma_top', 'arma_bottom', 'arma_hat', 'zaryte_vambs', 'pegasian_boots', 'archers_ring', 'max_cape', 'fury']
+    elif gear_setup_input.lower() == 'fremmy_void':
+        gear_selected = ['void_top', 'void_bottom', 'void_hat', 'void_gloves', 'pegasian_boots', 'archers_ring', 'max_cape', 'fury']
     else:
         print("Invalid gear setup.")
         return
